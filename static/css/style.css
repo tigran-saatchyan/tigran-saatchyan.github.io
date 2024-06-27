@@ -165,6 +165,10 @@ footer a:hover {
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+.skill:hover {
+    transform: scale(1.05);
+}
+
 .skill i {
     font-size: 2rem;
 }
