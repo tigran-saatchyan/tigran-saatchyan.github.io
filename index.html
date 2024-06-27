@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tigran's Portfolio</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="overlay">
+            <div class="container">
+                <h1>Tigran's Portfolio</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#achievements">Achievements</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm Tigran, a Python developer based in Batumi, Georgia. I have a passion for gaming and programming, and I can talk about programming for hours. My goal is to reach an annual income of $150,000 using my programming skills and startup ideas.</p>
+        </section>
+        <section id="projects" class="container">
+            <h2>Projects</h2>
+            <ul>
+                <li>
+                    <h3>Project 1</h3>
+                    <p>Description of project 1.</p>
+                    <a href="https://github.com/username/project1" class="button">View on GitHub</a>
+                </li>
+                <li>
+                    <h3>Project 2</h3>
+                    <p>Description of project 2.</p>
+                    <a href="https://github.com/username/project2" class="button">View on GitHub</a>
+                </li>
+            </ul>
+        </section>
+        <section id="skills" class="container">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skill" data-color="#306998">
+                    <i class="fab fa-python"></i>
+                    <p>Python</p>
+                </div>
+                <div class="skill" data-color="#E34F26">
+                    <i class="fab fa-html5"></i>
+                    <p>HTML</p>
+                </div>
+                <div class="skill" data-color="#1572B6">
+                    <i class="fab fa-css3-alt"></i>
+                    <p>CSS</p>
+                </div>
+                <div class="skill" data-color="#F7DF1E">
+                    <i class="fab fa-js"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill" data-color="#4DB33D">
+                    <i class="fas fa-database"></i>
+                    <p>SQL</p>
+                </div>
+                <!-- Add more skills with icons as needed -->
+            </div>
+        </section>
+        <section id="experience" class="container">
+            <h2>Experience</h2>
+            <ul>
+                <li>
+                    <h3>Job Title at Company</h3>
+                    <p>Job description and responsibilities.</p>
+                    <p><strong>Duration:</strong> Start Date - End Date</p>
+                </li>
+                <li>
+                    <h3>Job Title at Company</h3>
+                    <p>Job description and responsibilities.</p>
+                    <p><strong>Duration:</strong> Start Date - End Date</p>
+                </li>
+                <!-- Add more job experiences as needed -->
+            </ul>
+        </section>
+        <section id="education" class="container">
+            <h2>Education</h2>
+            <ul>
+                <li>Informatics started in 6th grade</li>
+                <!-- Add more education details as needed -->
+            </ul>
+        </section>
+        <section id="achievements" class="container">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Successfully launched several projects</li>
+                <li>Developed innovative solutions in Python</li>
+                <!-- Add more achievements as needed -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:mr.saatchyan@yandex.com">mr.saatchyan@yandex.com</a></p>
+                <p>GitHub: <a href="https://github.com/tigran-saatchyan">github.com/tigran-saatchyan</a></p>
+                <!-- Add more contact information as needed -->
+            </section>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        document.querySelectorAll('.container').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Random colors for skill boxes on hover
+        const skills = document.querySelectorAll('.skill');
+        skills.forEach(skill => {
+            skill.addEventListener('mouseover', () => {
+                const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+                skill.style.backgroundColor = randomColor;
+                skill.style.color = "#fff";
+            });
+            skill.addEventListener('mouseout', () => {
+                skill.style.backgroundColor = "";
+                skill.style.color = "";
+            });
+        });
+    </script>
+</body>
+</html>
